@@ -6,19 +6,18 @@
 
 ### Transform your Blogger website into an OTT streaming experience like Netflix.
 
-[![Demo Website](https://img.shields.io/badge/Live-Demo-E50914?style=for-the-badge&logo=blogger&logoColor=white)](https://abefilmpostcode.blogspot.com/)
+[![Demo Website](https://img.shields.io/badge/Live-Demo-E50914?style=for-the-badge&logo=blogger&logoColor=white)](https://abeflixofficial.blogspot.com/)
 [![Interactive Docs](https://img.shields.io/badge/Documentation-Portal-9333EA?style=for-the-badge&logo=gitbook&logoColor=white)](https://ayengcoding.github.io/abeflix/docs/)
-[![Official Store](https://img.shields.io/badge/Theme-Registration-00C853?style=for-the-badge&logo=telegram&logoColor=white)](https://abefilmofficialzone.blogspot.com/2025/12/abeflix.html)
+[![Gumroad Shop](https://img.shields.io/badge/Buy%20Theme-Gumroad%20Store-FF90E8?style=for-the-badge&logo=gumroad&logoColor=black)](https://ayengstore.gumroad.com/l/abeflix)
 
 </div>
 
 ---
 
 ## ? Fast Links & Resources
-* ?? **Live Demo:** [abefilmpostcode.blogspot.com](https://abefilmpostcode.blogspot.com/)
+* ?? **Live Demo:** [abeflixofficial.blogspot.com](https://abeflixofficial.blogspot.com/)
 * ?? **Online Documentation & Shortcode Builder:** [ayengcoding.github.io/abeflix/docs](https://ayengcoding.github.io/abeflix/docs/)
-* ?? **License & Domain Registration:** [Registration Process](https://abefilmofficialzone.blogspot.com/p/registration-process.html)
-* ?? **Support & Queries:** [Abefilm Official Zone](https://abefilmofficialzone.blogspot.com/2025/12/abeflix.html)
+* ?? **Purchase Theme (Gumroad):** [Get ABEFLIX on AyengStore](https://ayengstore.gumroad.com/l/abeflix)
 
 ---
 
@@ -64,20 +63,12 @@ Broadcast system updates, new release announcements, and notices directly to the
 
 ## ?? Quick Setup & Installation
 
-> [!IMPORTANT]
-> The encrypted XML theme file is distributed exclusively to licensed users. Never commit the raw XML theme to public repositories.
-
 ### Step 1: Install the Theme
 1. Navigate to your **Blogger Dashboard** > **Theme**.
 2. Click the dropdown next to **Customize** and select **Edit HTML**.
-3. Replace the entire template code with your licensed **ABEFLIX XML** and click **Save**.
+3. Replace the entire template code with your licensed **ABEFLIX XML** file and click **Save**.
 
-### Step 2: License & Domain Activation
-1. Visit the [Registration Page](https://abefilmofficialzone.blogspot.com/p/registration-process.html).
-2. Enter your authorized domain name and license key provided via Telegram.
-3. *Note: One license is valid per single registered domain.*
-
-### Step 3: Required Core Pages
+### Step 2: Required Core Pages
 Ensure the following standard pages are published (or imported via `feed.atom`):
 * `Favorite` (`/p/favorite.html`)
 * `History` (`/p/history.html`)
@@ -95,7 +86,7 @@ For full widget tutorials, shortcode cheatsheet, player multi-source embed guide
 
 ---
 
-## ?? Community & Support
-* **Demo Site:** [https://abefilmpostcode.blogspot.com/](https://abefilmpostcode.blogspot.com/)
-* **Official Store:** [Abefilm Official Zone](https://abefilmofficialzone.blogspot.com/2025/12/abeflix.html)
+## ?? Community & Store
+* **Demo Site:** [https://abeflixofficial.blogspot.com/](https://abeflixofficial.blogspot.com/)
+* **Official Store:** [AyengStore on Gumroad](https://ayengstore.gumroad.com/l/abeflix)
 * **Author / Developer:** Ayeng Coding
