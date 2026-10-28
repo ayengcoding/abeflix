@@ -94,7 +94,12 @@ For layout gadget guides, post HTML templates, and the interactive shortcode gen
 
 ---
 
-## Community & Store
-* **Live Demo:** [https://abeflixofficial.blogspot.com/](https://abeflixofficial.blogspot.com/)
+## Community & Socials
 * **Official Store:** [AyengStore on Gumroad](https://ayengstore.gumroad.com/l/abeflix)
-* **Author / Developer:** Ayeng Coding
+* **Live Demo:** [https://abeflixofficial.blogspot.com/](https://abeflixofficial.blogspot.com/)
+* **Telegram Account:** [@ayengcoding](https://t.me/ayengcoding)
+* **Telegram Channel:** [t.me/ayeng_coding](https://t.me/ayeng_coding)
+* **Telegram Community Group:** [t.me/ayengcodingofficial](https://t.me/ayengcodingofficial)
+* **Facebook:** [facebook.com/acohcayeng](https://www.facebook.com/acohcayeng)
+* **Instagram:** [@acoh_cariel](https://www.instagram.com/acoh_cariel/)
+* **GitHub:** [github.com/ayengcoding](https://github.com/ayengcoding)
