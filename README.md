@@ -7,7 +7,7 @@
 ### Transform your Blogger website into an OTT streaming experience like Netflix.
 
 [![Demo Website](https://img.shields.io/badge/Live-Demo-E50914?style=for-the-badge&logo=blogger&logoColor=white)](https://abeflixofficial.blogspot.com/)
-[![Interactive Docs](https://img.shields.io/badge/Documentation-Portal-9333EA?style=for-the-badge&logo=gitbook&logoColor=white)](https://ayengcoding.github.io/abeflix/docs/)
+[![Interactive Docs](https://img.shields.io/badge/Documentation-Portal-9333EA?style=for-the-badge&logo=gitbook&logoColor=white)](https://ayengcoding.github.io/abeflix/)
 [![Gumroad Shop](https://img.shields.io/badge/Buy%20Theme-Gumroad%20Store-FF90E8?style=for-the-badge&logo=gumroad&logoColor=black)](https://ayengstore.gumroad.com/l/abeflix)
 
 </div>
@@ -16,7 +16,7 @@
 
 ## ? Fast Links & Resources
 * ?? **Live Demo:** [abeflixofficial.blogspot.com](https://abeflixofficial.blogspot.com/)
-* ?? **Online Documentation & Shortcode Builder:** [ayengcoding.github.io/abeflix/docs](https://ayengcoding.github.io/abeflix/docs/)
+* ?? **Online Documentation & Shortcode Builder:** [ayengcoding.github.io/abeflix](https://ayengcoding.github.io/abeflix/)
 * ?? **Purchase Theme (Gumroad):** [Get ABEFLIX on AyengStore](https://ayengstore.gumroad.com/l/abeflix)
 
 ---
@@ -82,7 +82,7 @@ Ensure the following standard pages are published (or imported via `feed.atom`):
 
 ## ?? Complete Documentation
 For full widget tutorials, shortcode cheatsheet, player multi-source embed guides, and styling options:
-?? **[Open the Official ABEFLIX Documentation Portal](https://ayengcoding.github.io/abeflix/docs/)**
+?? **[Open the Official ABEFLIX Documentation Portal](https://ayengcoding.github.io/abeflix/)**
 
 ---
 
