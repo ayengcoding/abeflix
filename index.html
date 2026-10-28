@@ -422,14 +422,14 @@
 
     <!-- 2nd line: Mobile Horizontal Scrollable Tabs -->
     <nav class="header-tabs" aria-label="Mobile Navigation">
-      <a href="#setup" class="header-tab-item">?? Getting Started</a>
-      <a href="#layout" class="header-tab-item">?? Layout &amp; Widgets</a>
-      <a href="#shortcodes" class="header-tab-item">? Shortcodes</a>
-      <a href="#builder" class="header-tab-item">??? Generator</a>
-      <a href="#posting" class="header-tab-item">?? Post Template</a>
-      <a href="#user-system" class="header-tab-item">?? Avatars &amp; Accounts</a>
-      <a href="#notifications" class="header-tab-item">?? Notifications</a>
-      <a href="https://ayengstore.gumroad.com/l/abeflix" target="_blank" class="header-tab-item">?? Store</a>
+      <a href="#setup" class="header-tab-item">Getting Started</a>
+      <a href="#layout" class="header-tab-item">Layout &amp; Widgets</a>
+      <a href="#shortcodes" class="header-tab-item">Shortcodes</a>
+      <a href="#builder" class="header-tab-item">Shortcode Generator</a>
+      <a href="#posting" class="header-tab-item">Post Template</a>
+      <a href="#user-system" class="header-tab-item">Avatars &amp; Accounts</a>
+      <a href="#notifications" class="header-tab-item">Notifications</a>
+      <a href="https://ayengstore.gumroad.com/l/abeflix" target="_blank" class="header-tab-item">Theme Store</a>
     </nav>
   </header>
 
@@ -438,7 +438,7 @@
       <div class="nav-group">
         <div class="nav-group-title">1. Getting Started</div>
         <a href="#overview" class="doc-nav-item active">Overview</a>
-        <a href="#setup" class="doc-nav-item">Initial Setup & Pages</a>
+        <a href="#setup" class="doc-nav-item">How to Use &amp; Upload Theme</a>
         <a href="#settings" class="doc-nav-item">General Settings</a>
       </div>
       <div class="nav-group">
@@ -481,13 +481,23 @@
       <p>Welcome to the official technical documentation for the <strong>ABEFLIX</strong> Blogger streaming theme. This comprehensive manual guides you through initial setup, layout configuration, post formatting, shortcode widgets, and user account management to help you launch a high-traffic OTT streaming web app.</p>
 
       <div class="callout">
-        <div class="callout-title">?? Why ABEFLIX?</div>
+        <div class="callout-title">Why ABEFLIX?</div>
         <div>ABEFLIX turns Blogger into a true web app with a modular <code>{lazyPosts}</code> shortcode layout engine, automated Continue Watching playback resume, dynamic leaderboards, categorized avatar packs, and a multi-source video player.</div>
       </div>
 
       <!-- 1. Initial Setup -->
-      <h2 id="setup">1. Initial Setup</h2>
-      <h3>a. Creating Required Static Pages</h3>
+            <h2 id="setup">1. How to Use &amp; Upload Theme</h2>
+
+      <h3>a. Uploading Theme XML to Blogger</h3>
+      <ol>
+        <li>Download your licensed <code>ABEFLIX Original.xml</code> file.</li>
+        <li>In your <strong>Blogger Dashboard</strong>, navigate to <strong>Theme</strong> in the left menu.</li>
+        <li>Click the dropdown menu next to the orange <strong>Customize</strong> button and click <strong>Edit HTML</strong> (or select <strong>Restore</strong> &gt; <strong>Upload</strong>).</li>
+        <li>Select all existing code (<code>Ctrl + A</code>), delete it, and paste the entire code from <code>ABEFLIX Original.xml</code>.</li>
+        <li>Click the <strong>Save</strong> button in the top right.</li>
+      </ol>
+
+      <h3>b. Creating Required Static Pages</h3>
       <p>ABEFLIX uses dedicated static pages for Watchlist, History, Favorites, Discover, My Account, and Leaderboards. Create each page inside your Blogger dashboard:</p>
       <ol>
         <li>Go to <strong>Pages</strong> &gt; <strong>New Page</strong>.</li>
@@ -506,11 +516,11 @@
       </ol>
 
       <div class="callout callout-warning">
-        <div class="callout-title">?? Important: Keep Pages Blank</div>
+        <div class="callout-title">Important: Keep Pages Blank</div>
         <div>Do <strong>not</strong> write HTML or import code into these pages. The theme's built-in script automatically recognizes the page URL slug and renders the appropriate interactive interface (watch history, watchlist cards, avatar selection, etc.).</div>
       </div>
 
-      <h3 id="settings">b. General Blogger Settings</h3>
+      <h3 id="settings">c. General Blogger Settings</h3>
       <ul>
         <li><strong>Favicon:</strong> Navigate to <strong>Settings</strong> &gt; <strong>Basic</strong> &gt; <strong>Favicon</strong> and upload a square PNG or ICO icon.</li>
         <li><strong>Time Zone:</strong> Navigate to <strong>Settings</strong> &gt; <strong>Formatting</strong> and set your target timezone.</li>
@@ -698,7 +708,7 @@
 
       <h3 id="labels">Post Labels &amp; Safe Mode</h3>
       <div class="callout">
-        <div class="callout-title">??? Crucial Post Labels</div>
+        <div class="callout-title">Crucial Post Labels</div>
         <div>In the Post Settings sidebar, assign labels like <code>Action</code>, <code>Movie</code>, <code>TV Series</code>, or <code>Drama</code>.</div>
         <p style="margin-top:0.5rem;margin-bottom:0;"><strong>Safe Mode Trigger:</strong> To flag a post as 18+ or mature, simply add the label <code>Mature</code>. When viewers activate the Safe Mode toggle, all posts with this label are instantly hidden.</p>
       </div>
