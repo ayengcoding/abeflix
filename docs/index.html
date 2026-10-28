@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="assets/logo.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ABEFLIX Documentation ? Blogger Streaming Web App Theme</title>
-  <meta name="description" content="Official documentation for ABEFLIX Blogger Theme. Setup guides, {lazyPosts} shortcodes builder, player configuration, and user dashboard features.">
+  <title>ABEFLIX Theme Documentation ? Blogger Streaming Web App</title>
+  <meta name="description" content="Official documentation for ABEFLIX Blogger Theme. Complete setup guide, {lazyPosts} shortcodes, post formatting templates, multi-server player, avatar data source, and layout customization.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -30,23 +30,23 @@
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
-    a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
-    a:hover { color: #a855f7; }
+    a { color: #a855f7; text-decoration: none; transition: color 0.2s; }
+    a:hover { color: #c084fc; text-decoration: underline; }
 
     /* Header */
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(17, 19, 26, 0.9);
+      background: rgba(17, 19, 26, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 0.9rem 2rem;
+      padding: 0.85rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -55,9 +55,6 @@
       display: flex;
       align-items: center;
       gap: 0.85rem;
-      font-weight: 800;
-      font-size: 1.25rem;
-      letter-spacing: -0.02em;
     }
     .brand-logo-img {
       height: 34px;
@@ -73,6 +70,7 @@
       border-radius: 9999px;
       font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
     .nav-links {
       display: flex;
@@ -86,6 +84,7 @@
     }
     .nav-links a:hover {
       color: #fff;
+      text-decoration: none;
     }
     .btn-demo {
       background: var(--accent);
@@ -95,6 +94,7 @@
       font-size: 0.85rem;
       font-weight: 700;
       transition: 0.2s ease;
+      text-decoration: none !important;
     }
     .btn-demo:hover { background: #b80710; transform: translateY(-1px); }
 
@@ -102,12 +102,12 @@
     .docs-container {
       display: flex;
       flex: 1;
-      max-width: 1400px;
+      max-width: 1440px;
       margin: 0 auto;
       width: 100%;
     }
     aside {
-      width: 280px;
+      width: 290px;
       background: var(--sidebar-bg);
       border-right: 1px solid var(--border);
       padding: 2rem 1.25rem;
@@ -141,6 +141,7 @@
       color: #fff;
       background: rgba(147, 51, 234, 0.15);
       border-left: 3px solid var(--primary);
+      text-decoration: none;
     }
     main {
       flex: 1;
@@ -154,49 +155,54 @@
       border-radius: var(--radius);
       margin-bottom: 2.5rem;
       border: 1px solid var(--border);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
     h1 { font-size: 2.25rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
-    h2 { font-size: 1.5rem; font-weight: 700; margin-top: 3rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-    h3 { font-size: 1.2rem; font-weight: 600; margin-top: 1.75rem; margin-bottom: 0.75rem; }
-    p { margin-bottom: 1.25rem; color: #d1d5db; line-height: 1.7; }
-    ul, ol { margin-bottom: 1.5rem; padding-left: 1.5rem; color: #d1d5db; }
-    li { margin-bottom: 0.4rem; }
+    h2 { font-size: 1.55rem; font-weight: 700; margin-top: 3.25rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.6rem; color: #fff; }
+    h3 { font-size: 1.22rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.75rem; color: #e2e8f0; }
+    h4 { font-size: 1.05rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #cbd5e1; }
+    h5 { font-size: 0.95rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.4rem; color: #a855f7; }
+    p { margin-bottom: 1.25rem; color: #cbd5e1; line-height: 1.7; }
+    ul, ol { margin-bottom: 1.5rem; padding-left: 1.5rem; color: #cbd5e1; }
+    li { margin-bottom: 0.45rem; }
 
     /* Callout */
     .callout {
       background: rgba(147, 51, 234, 0.1);
       border-left: 4px solid var(--primary);
-      padding: 1rem 1.25rem;
+      padding: 1.1rem 1.35rem;
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      margin: 1.5rem 0;
+      margin: 1.75rem 0;
     }
-    .callout-title { font-weight: 700; color: #fff; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem; }
-    .callout-danger { background: rgba(229, 9, 20, 0.1); border-left-color: var(--accent); }
+    .callout-title { font-weight: 700; color: #fff; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.45rem; }
+    .callout-warning { background: rgba(245, 158, 11, 0.12); border-left-color: #f59e0b; color: #fde68a; }
+    .callout-warning .callout-title { color: #fbbf24; }
+    .callout-danger { background: rgba(229, 9, 20, 0.12); border-left-color: var(--accent); }
 
     /* Code & Pre */
     pre {
       background: var(--code-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 1.2rem;
+      padding: 1.25rem;
       overflow-x: auto;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.88rem;
       margin: 1.25rem 0;
       position: relative;
+      line-height: 1.55;
     }
     code {
       font-family: 'JetBrains Mono', monospace;
       background: rgba(255,255,255,0.08);
-      padding: 0.2rem 0.4rem;
+      padding: 0.2rem 0.45rem;
       border-radius: 4px;
-      font-size: 0.85em;
+      font-size: 0.86em;
       color: #f472b6;
     }
     pre code { background: transparent; padding: 0; color: #f3f4f6; }
 
-    /* Shortcode Interactive Builder Card */
+    /* Interactive Shortcode Generator Card */
     .builder-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -249,12 +255,13 @@
       background: var(--primary);
       color: #fff;
       border: none;
-      padding: 0.5rem 0.9rem;
+      padding: 0.55rem 1rem;
       border-radius: 6px;
       cursor: pointer;
       font-weight: 600;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       white-space: nowrap;
+      transition: background 0.15s;
     }
     .btn-copy:hover { background: var(--primary-hover); }
 
@@ -274,10 +281,11 @@
       <span class="brand-badge">Blogger Theme</span>
     </div>
     <div class="nav-links">
-      <a href="#quickstart">Quickstart</a>
+      <a href="#setup">Setup</a>
+      <a href="#layout">Layout</a>
+      <a href="#posting">Posting Guide</a>
       <a href="#shortcodes">Shortcodes</a>
-      <a href="#player">Video Player</a>
-      <a href="#pages">Pages</a>
+      <a href="#notifications">Notifications</a>
       <a href="https://abeflixofficial.blogspot.com/" target="_blank" class="btn-demo">Live Demo ?</a>
     </div>
   </header>
@@ -285,21 +293,38 @@
   <div class="docs-container">
     <aside>
       <div class="nav-group">
-        <div class="nav-group-title">Getting Started</div>
+        <div class="nav-group-title">1. Getting Started</div>
         <a href="#overview" class="doc-nav-item active">Overview</a>
-        <a href="#installation" class="doc-nav-item">Installation</a>
-        <a href="#licensing" class="doc-nav-item">Official Store & Access</a>
-        <a href="#pages" class="doc-nav-item">Required Pages</a>
+        <a href="#setup" class="doc-nav-item">Initial Setup & Pages</a>
+        <a href="#settings" class="doc-nav-item">General Settings</a>
       </div>
       <div class="nav-group">
-        <div class="nav-group-title">Configuration</div>
-        <a href="#shortcodes" class="doc-nav-item">Shortcode Engine</a>
+        <div class="nav-group-title">2. Layout & Widgets</div>
+        <a href="#layout-header" class="doc-nav-item">Header Widgets</a>
+        <a href="#layout-sidebar" class="doc-nav-item">Desktop Sidebar Nav</a>
+        <a href="#layout-content" class="doc-nav-item">Homepage Widgets</a>
+        <a href="#layout-post" class="doc-nav-item">Post Page Sidebar</a>
+        <a href="#layout-footer" class="doc-nav-item">Footer Widgets</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-title">3. Shortcode Engine</div>
+        <a href="#shortcodes" class="doc-nav-item">Syntax & Styles</a>
         <a href="#builder" class="doc-nav-item">Shortcode Generator</a>
-        <a href="#player" class="doc-nav-item">Multi-Source Player</a>
-        <a href="#dashboard" class="doc-nav-item">User Dashboard & Avatars</a>
       </div>
       <div class="nav-group">
-        <div class="nav-group-title">Theme Store</div>
+        <div class="nav-group-title">4. Publishing Guide</div>
+        <a href="#posting" class="doc-nav-item">HTML Post Template</a>
+        <a href="#labels" class="doc-nav-item">Labels & Safe Mode</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-title">5. Web App Features</div>
+        <a href="#user-system" class="doc-nav-item">User System & Avatars</a>
+        <a href="#notifications" class="doc-nav-item">Notification Center</a>
+        <a href="#interactive" class="doc-nav-item">Rating & Reactions</a>
+        <a href="#customization" class="doc-nav-item">Theme Customizer</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-title">Official Store</div>
         <a href="https://ayengstore.gumroad.com/l/abeflix" target="_blank" class="doc-nav-item">Get ABEFLIX (Gumroad) ?</a>
       </div>
     </aside>
@@ -307,50 +332,110 @@
     <main>
       <img src="assets/abeflix-banner.jpg" alt="ABEFLIX Streaming Platform" class="hero-banner">
 
-      <h1 id="overview">ABEFLIX Documentation Portal</h1>
-      <p>Welcome to the official technical documentation for <strong>ABEFLIX</strong>, the ultimate Netflix-inspired streaming theme built specifically for Google Blogger / Blogspot.</p>
+      <h1 id="overview">ABEFLIX Theme Documentation</h1>
+      <p>Welcome to the official technical documentation for the <strong>ABEFLIX</strong> Blogger streaming theme. This comprehensive manual guides you through initial setup, layout configuration, post formatting, shortcode widgets, and user account management to help you launch a high-traffic OTT streaming web app.</p>
 
       <div class="callout">
-        <div class="callout-title">?? What makes ABEFLIX unique?</div>
-        <div>Unlike typical templates requiring deep code edits, ABEFLIX uses a modular <code>{lazyPosts}</code> widget shortcode engine, automated "Continue Watching" playback persistence, and full user accounts (Watchlist, Favorites, History, Avatars).</div>
+        <div class="callout-title">?? Why ABEFLIX?</div>
+        <div>ABEFLIX turns Blogger into a true web app with a modular <code>{lazyPosts}</code> shortcode layout engine, automated Continue Watching playback resume, dynamic leaderboards, categorized avatar packs, and a multi-source video player.</div>
       </div>
 
-      <h2 id="installation">1. Installation Guide</h2>
+      <!-- 1. Initial Setup -->
+      <h2 id="setup">1. Initial Setup</h2>
+      <h3>a. Creating Required Static Pages</h3>
+      <p>ABEFLIX uses dedicated static pages for Watchlist, History, Favorites, Discover, My Account, and Leaderboards. Create each page inside your Blogger dashboard:</p>
       <ol>
-        <li>Go to your <strong>Blogger Dashboard</strong> > <strong>Theme</strong> tab.</li>
-        <li>Click the arrow next to <strong>Customize</strong> and select <strong>Edit HTML</strong>.</li>
-        <li>Backup your existing code, select all, and paste the contents of your licensed <code>ABEFLIX Original.xml</code>.</li>
-        <li>Click <strong>Save</strong>.</li>
+        <li>Go to <strong>Pages</strong> &gt; <strong>New Page</strong>.</li>
+        <li>Enter the exact required title (e.g. <code>Watchlist</code>).</li>
+        <li>Leave the page content area completely <strong>blank</strong> and click <strong>Publish</strong>.</li>
+        <li>Repeat this process for all core pages:
+          <ul>
+            <li><code>Watchlist</code> &mdash; URL: <code>/p/watchlist.html</code></li>
+            <li><code>Favorite</code> &mdash; URL: <code>/p/favorite.html</code></li>
+            <li><code>History</code> &mdash; URL: <code>/p/history.html</code></li>
+            <li><code>Discover</code> &mdash; URL: <code>/p/discover.html</code></li>
+            <li><code>My Account</code> &mdash; URL: <code>/p/my-account.html</code></li>
+            <li><code>Leaderboard</code> &mdash; URL: <code>/p/leaderboard.html</code></li>
+          </ul>
+        </li>
       </ol>
 
-      <h2 id="licensing">2. Official Store & Theme Access</h2>
-      <div class="callout">
-        <div class="callout-title">?? Download & Theme Updates</div>
-        <div>Get instant access to full theme packages, XML files, and updates directly from our official store:</div>
-        <p style="margin-top:0.5rem;"><a href="https://ayengstore.gumroad.com/l/abeflix" target="_blank"><strong>?? Purchase ABEFLIX on AyengStore (Gumroad)</strong></a></p>
+      <div class="callout callout-warning">
+        <div class="callout-title">?? Important: Keep Pages Blank</div>
+        <div>Do <strong>not</strong> write HTML or import code into these pages. The theme's built-in script automatically recognizes the page URL slug and renders the appropriate interactive interface (watch history, watchlist cards, avatar selection, etc.).</div>
       </div>
 
-      <h2 id="pages">3. Required Core Pages</h2>
-      <p>Create these standalone Blogger pages (via Pages > New Page) or import <code>feed.atom</code>:</p>
+      <h3 id="settings">b. General Blogger Settings</h3>
       <ul>
-        <li><code>Favorite</code> &mdash; URL: <code>/p/favorite.html</code></li>
-        <li><code>History</code> &mdash; URL: <code>/p/history.html</code></li>
-        <li><code>Watchlist</code> &mdash; URL: <code>/p/watchlist.html</code></li>
-        <li><code>My Account</code> &mdash; URL: <code>/p/my-account.html</code></li>
-        <li><code>Leaderboard</code> &mdash; URL: <code>/p/leaderboard.html</code></li>
-        <li><code>Discover</code> &mdash; URL: <code>/p/discover.html</code></li>
+        <li><strong>Favicon:</strong> Navigate to <strong>Settings</strong> &gt; <strong>Basic</strong> &gt; <strong>Favicon</strong> and upload a square PNG or ICO icon.</li>
+        <li><strong>Time Zone:</strong> Navigate to <strong>Settings</strong> &gt; <strong>Formatting</strong> and set your target timezone.</li>
       </ul>
 
-      <h2 id="shortcodes">4. Shortcode Engine (`{lazyPosts}`)</h2>
-      <p>Add an <strong>HTML/JavaScript Gadget</strong> anywhere in your layout (e.g. Main Homepage Rail) and paste a shortcode:</p>
-      <pre><code>{lazyPosts} $label={Action} $results={12} $style={nowrap} $class={carousel-posts}</code></pre>
+      <!-- 2. Layout Guide -->
+      <h2 id="layout">2. Layout Guide &amp; Widget Configuration</h2>
+      <p>Every element on the homepage and watch page is modularly arranged in your <strong>Layout</strong> dashboard.</p>
+
+      <h3 id="layout-header">a. Header Widgets</h3>
+      <ul>
+        <li><strong>DESKTOP MENU - MAIN LINK:</strong> Contains two Link List gadgets controlling top-level desktop header navigation.</li>
+        <li><strong>DESKTOP HEADER WIDGET:</strong> Houses Search, History, Watchlist, and User Account action buttons. Works out-of-the-box without manual configuration.</li>
+        <li><strong>MOBILE LOGO, SEARCH, NAVIGATION:</strong> Three dedicated sections for mobile viewports. Edit the <code>Image</code> gadget for the mobile logo and the <code>Link List</code> gadget for mobile drawer navigation.</li>
+      </ul>
+
+      <h3 id="layout-sidebar">b. Desktop Sidebar Navigation</h3>
+      <ul>
+        <li><strong>ABEFLIX (Image):</strong> The primary desktop sidebar logo.</li>
+        <li><strong>Main Navigation (Link List):</strong> Main navigation shortcuts (Home, Movie, TV Series, Animation, Discover, etc.).</li>
+        <li><strong>Theme Settings (HTML/JavaScript):</strong> Toggles the client-side color swatch customizer and dark/light modes.</li>
+        <li><strong>Download App (HTML/JavaScript):</strong> Displays the QR code and Android APK download prompt. Add your direct APK link here.</li>
+        <li><strong>Follow Us (HTML/JavaScript):</strong> Social media channels (Telegram, Twitter/X, Discord, Instagram).</li>
+      </ul>
+
+      <h3 id="layout-content">c. Homepage Content Widgets</h3>
+      <p>Use Blogger <strong>HTML/JavaScript</strong> gadgets with <code>{lazyPosts}</code> shortcodes to build custom feeds, sliders, and ranked grids.</p>
+
+      <h4>PAGE BODY Section</h4>
+      <ul>
+        <li><strong>Trending Now (Popular Posts):</strong> Built-in widget automatically pulling the Top 10 most viewed titles over the last 7 days.</li>
+        <li><strong>Continue Watching (HTML/JavaScript):</strong> Displays the viewer's active playback rail automatically if in-progress titles exist in local storage.</li>
+      </ul>
+
+      <h4>LABEL FILTER POST 1 &amp; 2 Sections</h4>
+      <p>Insert an <strong>HTML/JavaScript</strong> gadget and paste any of the shortcodes below:</p>
+
+      <h2 id="shortcodes">3. Modular Shortcode Engine (`{lazyPosts}`)</h2>
+      <p>The <code>{lazyPosts}</code> engine allows you to specify label filtering, result limits, sorting methods, and layout styling directly:</p>
+
+      <ul>
+        <li>
+          <strong>Horizontal Carousel (<code>nowrap</code>):</strong>
+          <pre><code>{lazyPosts} $label={Movie} $results={12} $style={nowrap}</code></pre>
+        </li>
+        <li>
+          <strong>Responsive Grid (<code>grid</code>):</strong>
+          <pre><code>{lazyPosts} $label={Thriller} $results={6} $style={grid}</code></pre>
+        </li>
+        <li>
+          <strong>Ranked Wide List (<code>wide-list</code>):</strong>
+          <pre><code>{lazyPosts} $label={TV Series} $results={9} $style={wide-list} $sortBy={rating}</code></pre>
+        </li>
+        <li>
+          <strong>Alternate Ranked Grid (<code>ranked-grid-alt</code>):</strong>
+          <pre><code>{lazyPosts} $label={Movie} $results={9} $style={ranked-grid-alt} $sortBy={rating}</code></pre>
+        </li>
+        <li>
+          <strong>Filtered Switch Grid (<code>filtered-switch</code>):</strong>
+          <p>Pulls random posts across comma-separated labels. Clicking "Switch" instantly re-rolls a new random selection.</p>
+          <pre><code>{lazyPosts} $label={Romance,Comedy} $results={6} $style={filtered-switch}</code></pre>
+        </li>
+      </ul>
 
       <h3 id="builder">? Interactive Shortcode Generator</h3>
       <div class="builder-card">
         <div class="builder-grid">
           <div class="form-group">
             <label>Label / Category</label>
-            <input type="text" id="scLabel" class="form-control" value="Action" oninput="updateShortcode()">
+            <input type="text" id="scLabel" class="form-control" value="Movie" oninput="updateShortcode()">
           </div>
           <div class="form-group">
             <label>Layout Style</label>
@@ -358,8 +443,9 @@
               <option value="nowrap">Horizontal Carousel (nowrap)</option>
               <option value="grid">Responsive Movie Grid (grid)</option>
               <option value="top-list">Top 10 Ranked List (top-list)</option>
+              <option value="wide-list">Wide Ranked List (wide-list)</option>
+              <option value="ranked-grid-alt">Alternate Ranked Grid (ranked-grid-alt)</option>
               <option value="filtered-switch">Category Switcher (filtered-switch)</option>
-              <option value="wide-list">Wide Episode Cards (wide-list)</option>
             </select>
           </div>
           <div class="form-group">
@@ -377,23 +463,147 @@
 
         <label style="font-size:0.8rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:0.4rem;">Generated Shortcode:</label>
         <div class="builder-output">
-          <code id="scOutput">{lazyPosts} $label={Action} $results={12} $style={nowrap} $class={carousel-posts}</code>
+          <code id="scOutput">{lazyPosts} $label={Movie} $results={12} $style={nowrap}</code>
           <button class="btn-copy" onclick="copyShortcode()">Copy Shortcode</button>
         </div>
       </div>
 
-      <h2 id="player">5. Video Multi-Server Player</h2>
-      <p>In your post HTML editor, format video streaming servers easily:</p>
-      <pre><code>&lt;div id="player-servers"&gt;
-  &lt;button data-stream="https://server1.example/embed/xyz"&gt;Server 1 (FHD)&lt;/button&gt;
-  &lt;button data-stream="https://server2.example/embed/xyz"&gt;Server 2 (Backup)&lt;/button&gt;
+      <h4>Celebrity &amp; Upcoming Carousels</h4>
+      <ul>
+        <li><strong>CELEBRITY CAROUSEL:</strong> Edit the <code>Image</code> gadgets inside. Set the celebrity's name as the <strong>Title</strong> and their role (e.g. <code>American Actor</code>) as the <strong>Caption</strong>.</li>
+        <li><strong>UPCOMING CAROUSEL:</strong> Edit the <code>Image</code> gadgets and format the <strong>Caption</strong> strictly as:
+          <pre><code>[Movie][Sep 17, 2026] The official movie synopsis description goes here...</code></pre>
+        </li>
+      </ul>
+
+      <h3 id="layout-post">d. Post Page Widgets</h3>
+      <ul>
+        <li><strong>POST PAGE SIDEBAR WIDGETS:</strong> Appears on the right-hand column of the watch page on desktop. Edit the "Top Rating" gadget with the <code>top-list</code> shortcode:</li>
+        <pre><code>{lazyPosts} $results={10} $style={top-list} $sortBy={rating}</code></pre>
+      </ul>
+
+      <h3 id="layout-footer">e. Footer Widgets</h3>
+      <p>Configured across Footer Info, Footer Links, and Footer Attributes via standard Link List and Text gadgets.</p>
+
+      <!-- 4. Creating a Post -->
+      <h2 id="posting">4. Creating a Post (The Right Way)</h2>
+      <p>To enable the multi-server video player, backdrop slider, metadata tags, download links, and cast cards, write posts in <strong>HTML view</strong> using the exact structure below:</p>
+
+      <ol>
+        <li>Go to <strong>Posts</strong> &gt; <strong>New Post</strong>.</li>
+        <li>Switch the editor toolbar from "Compose view" to <strong>"HTML view"</strong>.</li>
+        <li>Paste the template below and replace placeholder fields:</li>
+      </ol>
+
+      <pre><code>&lt;!-- 1. Backdrop Image for Banner / Hero --&gt;
+&lt;span class="slider-backdrop" style="display:none;"&gt;https://example.com/backdrop.jpg&lt;/span&gt;
+
+&lt;div&gt;
+  &lt;!-- 2. Poster Image (Standard Thumbnail) --&gt;
+  &lt;img alt="poster" src="https://example.com/poster.jpg" /&gt;
+
+  &lt;!-- 3. Main Video Iframe (Default Fallback Embed) --&gt;
+  &lt;iframe class="lazyloaded" data-src="/" src="/" allowfullscreen="true"&gt;&lt;/iframe&gt;
+
+  &lt;!-- 4. Synopsis / Overview --&gt;
+  &lt;p class="overview" id="overview-data"&gt;This is the synopsis description of the movie or television show.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- 5. METADATA (Hidden) --&gt;
+&lt;div id="extra-meta" style="display:none;"&gt;
+  &lt;span class="meta-title-logo"&gt;https://example.com/title-logo.png&lt;/span&gt;
+  &lt;span class="meta-pg"&gt;TV-MA&lt;/span&gt;
+  &lt;span class="meta-country"&gt;Japan&lt;/span&gt;
+  &lt;span class="meta-genre"&gt;Animation&lt;/span&gt;
+  &lt;span class="meta-genre"&gt;Comedy&lt;/span&gt;
+  &lt;span class="meta-year"&gt;2026&lt;/span&gt;
+  &lt;span class="meta-rating"&gt;8.4&lt;/span&gt;
+  &lt;span class="meta-type"&gt;TV Series&lt;/span&gt;
+  &lt;span class="meta-subtitles"&gt;Multi-Sub&lt;/span&gt;
+  &lt;span class="meta-audio"&gt;Dual Audio&lt;/span&gt;
+  &lt;span id="trailer-data"&gt;https://www.youtube.com/embed/dQw4w9WgXcQ&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 6. Multi-Server Video Episodes / Stream Hosts --&gt;
+&lt;div id="episodes-data" style="display:none;"&gt;
+  &lt;ul data-server-name="Server 1 (FHD)" data-server-logo="https://example.com/server1-icon.png"&gt;
+    &lt;li&gt;&lt;a href="https://server1.example/embed/ep1"&gt;Episode 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="https://server1.example/embed/ep2"&gt;Episode 2&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;ul data-server-name="Server 2 (Backup)" data-server-logo="https://example.com/server2-icon.png"&gt;
+    &lt;li&gt;&lt;a href="https://server2.example/embed/ep1"&gt;Episode 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="https://server2.example/embed/ep2"&gt;Episode 2&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- 7. Direct Download Links --&gt;
+&lt;div id="download-data" style="display:none;"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="https://download.example/ep1-720p.mp4"&gt;Episode 1 (720p)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="https://download.example/ep1-1080p.mp4"&gt;Episode 1 (1080p)&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- 8. Cast &amp; Celebrity Data --&gt;
+&lt;div id="celebrity-data" style="display:none;"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;img src="https://example.com/actor1.jpg"/&gt;&lt;span&gt;Actor Name&lt;/span&gt;&lt;/li&gt;
+  &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
 
-      <h2 id="dashboard">6. User Dashboard & Engagement Features</h2>
+      <h3 id="labels">Post Labels &amp; Safe Mode</h3>
+      <div class="callout">
+        <div class="callout-title">??? Crucial Post Labels</div>
+        <div>In the Post Settings sidebar, assign labels like <code>Action</code>, <code>Movie</code>, <code>TV Series</code>, or <code>Drama</code>.</div>
+        <p style="margin-top:0.5rem;margin-bottom:0;"><strong>Safe Mode Trigger:</strong> To flag a post as 18+ or mature, simply add the label <code>Mature</code>. When viewers activate the Safe Mode toggle, all posts with this label are instantly hidden.</p>
+      </div>
+
+      <!-- 5. Features -->
+      <h2 id="user-system">5. User System &amp; Custom Avatars</h2>
+      <p>The <strong>My Account</strong> page (<code>/p/my-account.html</code>) acts as the visitor profile center. Viewers can edit their display username, switch avatars, and inspect their Watchlist and History records.</p>
+
+      <h3>Configuring Avatar Packs (Admin)</h3>
+      <ol>
+        <li>Open your Blogger <strong>Layout</strong> dashboard.</li>
+        <li>Locate the section labeled <strong>Avatar Data Source</strong>.</li>
+        <li><strong>Add Avatar Categories:</strong> Open the <code>Link List</code> widget titled "Avatar Categories". Add a link for each desired pack (e.g. <code>Name: Anime</code>, <code>URL: #</code>).</li>
+        <li><strong>Add Avatars to Category:</strong> For each category, open the corresponding gadget, click <strong>Add a Gadget</strong> &gt; <strong>Image</strong>, and upload avatar images.</li>
+      </ol>
+
+      <h2 id="notifications">6. Notification System</h2>
+      <p>Broadcast alerts and announcements directly to the header bell icon with active badge counters:</p>
+      <ol>
+        <li>Go to <strong>Layout</strong> &gt; <strong>Notifications</strong>.</li>
+        <li>Click <strong>Add a Gadget</strong> &gt; <strong>HTML/JavaScript</strong>.</li>
+        <li>Leave the title blank and paste one of the notification formats:</li>
+      </ol>
+
+      <h4>Format 1: System Message</h4>
+      <pre><code>&lt;div class="noti-item"&gt;
+  &lt;div class="noti-content"&gt;
+    &lt;div class="noti-main"&gt;System update: New high-speed streaming server added.&lt;/div&gt;
+    &lt;div class="noti-sub"&gt;System Message ? Oct 28, 2026&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h4>Format 2: Announcement with Image</h4>
+      <pre><code>&lt;div class="noti-item"&gt;
+  &lt;div class="noti-content"&gt;
+    &lt;div class="noti-main"&gt;
+      &lt;span class="text-highlight"&gt;New Release!&lt;/span&gt; Season 2 is now available to stream.
+    &lt;/div&gt;
+    &lt;div class="noti-sub"&gt;ABEFLIX ? Oct 28, 2026&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="noti-icon"&gt;
+    &lt;img src="https://example.com/notice-icon.png" loading="lazy" alt="Avatar"/&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h2 id="interactive">7. Interactive Features &amp; Customization</h2>
       <ul>
-        <li><strong>Watchlist & History:</strong> Automatically synced in the viewer's local browser storage.</li>
-        <li><strong>Continue Watching:</strong> Progress timestamps saved whenever a video is paused or exited.</li>
-        <li><strong>Avatar Packs:</strong> Built-in picker under "My Account" with anime & cinema themed avatars.</li>
+        <li><strong>Star Ratings &amp; Reactions:</strong> Real-time ratings and emoji reactions are powered by a client-side Supabase database connection and work out-of-the-box.</li>
+        <li><strong>Comment Formatting Helper:</strong> Post pages feature a dedicated formatting helper for visitors to easily create formatted comments (bold, quotes, code blocks).</li>
+        <li><strong>Theme Customizer:</strong> Users can choose between light/dark modes and select 12+ vibrant accent color palettes via the floating Theme switcher in the sidebar.</li>
       </ul>
 
       <footer style="margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; text-align: center;">
@@ -410,9 +620,6 @@
       const sort = document.getElementById('scSort').value;
 
       let code = `{lazyPosts} $label={${label}} $results={${results}} $style={${style}}`;
-      if (style === 'nowrap') {
-        code += ' $class={carousel-posts}';
-      }
       if (sort === 'rating') {
         code += ' $sortBy={rating}';
       }
