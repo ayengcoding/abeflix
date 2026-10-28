@@ -681,59 +681,83 @@
         <li>Paste the template below and replace placeholder fields:</li>
       </ol>
 
-      <pre><code>&lt;!-- 1. Backdrop Image for Banner / Hero --&gt;
-&lt;span class="slider-backdrop" style="display:none;"&gt;https://example.com/backdrop.jpg&lt;/span&gt;
+      <pre><code>&lt;!-- Backdrop Image --&gt;
+&lt;span class=&quot;slider-backdrop&quot; style=&quot;display:none;&quot;&gt;https://media.themoviedb.org/t/p/w500_and_h282_face/yGByIyqgJerCw7AAphTrTAlrdkJ.jpg&lt;/span&gt;
 
 &lt;div&gt;
-  &lt;!-- 2. Poster Image (Standard Thumbnail) --&gt;
-  &lt;img alt="poster" src="https://example.com/poster.jpg" /&gt;
-
-  &lt;!-- 3. Main Video Iframe (Default Fallback Embed) --&gt;
-  &lt;iframe class="lazyloaded" data-src="/" src="/" allowfullscreen="true"&gt;&lt;/iframe&gt;
-
-  &lt;!-- 4. Synopsis / Overview --&gt;
-  &lt;p class="overview" id="overview-data"&gt;This is the synopsis description of the movie or television show.&lt;/p&gt;
+  &lt;!-- Poster Image --&gt;
+  &lt;img alt=&quot;poster&quot; src=&quot;https://media.themoviedb.org/t/p/w220_and_h330_face/1XET89sjRm9mUuHXhGIlKTNd5uD.jpg&quot; /&gt;
+  &lt;!-- Video Iframe --&gt;
+  &lt;iframe class=&quot;lazyloaded&quot; data-src=&quot;/&quot; src=&quot;/&quot; allowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;
+  &lt;!-- Overview / Synopsis --&gt;
+  &lt;p class=&quot;overview&quot; id=&quot;overview-data&quot;&gt;British RAF Wing Commander James Wright is captured by the Japanese during WWII and forced to fight in brutal hand-to-hand combat. The Japanese soldiers get more than they bargained for when Wright?s years of martial arts training in Hong Kong prove him to be a formidable opponent.&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;!-- 5. METADATA (Hidden) --&gt;
-&lt;div id="extra-meta" style="display:none;"&gt;
-  &lt;span class="meta-title-logo"&gt;https://example.com/title-logo.png&lt;/span&gt;
-  &lt;span class="meta-pg"&gt;TV-MA&lt;/span&gt;
-  &lt;span class="meta-country"&gt;Japan&lt;/span&gt;
-  &lt;span class="meta-genre"&gt;Animation&lt;/span&gt;
-  &lt;span class="meta-genre"&gt;Comedy&lt;/span&gt;
-  &lt;span class="meta-year"&gt;2026&lt;/span&gt;
-  &lt;span class="meta-rating"&gt;8.4&lt;/span&gt;
-  &lt;span class="meta-type"&gt;TV Series&lt;/span&gt;
-  &lt;span class="meta-subtitles"&gt;Multi-Sub&lt;/span&gt;
-  &lt;span class="meta-audio"&gt;Dual Audio&lt;/span&gt;
-  &lt;span id="trailer-data"&gt;https://www.youtube.com/embed/dQw4w9WgXcQ&lt;/span&gt;
+&lt;!-- METADATA (Hidden) --&gt;
+&lt;div id=&quot;extra-meta&quot; style=&quot;display:none;&quot;&gt;
+  &lt;span class=&quot;meta-title-logo&quot;&gt;https://media.themoviedb.org/t/p/w500/peHOdaIlp9yYAEq4rE95qNoFvHc.png&lt;/span&gt;
+  &lt;span class=&quot;meta-country&quot;&gt;Philippines&lt;/span&gt;
+  &lt;span class=&quot;meta-genre&quot;&gt;Action&lt;/span&gt;
+  &lt;span class=&quot;meta-genre&quot;&gt;War&lt;/span&gt;
+  &lt;span class=&quot;meta-genre&quot;&gt;Thriller&lt;/span&gt;
+  &lt;span class=&quot;meta-genre&quot;&gt;History&lt;/span&gt;
+  &lt;span class=&quot;meta-year&quot;&gt;2025&lt;/span&gt;
+  &lt;span class=&quot;meta-rating&quot;&gt;6.5&lt;/span&gt;
+  &lt;span class=&quot;meta-type&quot;&gt;Movie&lt;/span&gt;
+  &lt;span class=&quot;meta-duration&quot;&gt;113min&lt;/span&gt;
+  &lt;span class=&quot;meta-subtitles&quot;&gt;8&lt;/span&gt;
+  &lt;span class=&quot;meta-audio&quot;&gt;3&lt;/span&gt;
+  &lt;span id=&quot;trailer-data&quot;&gt;https://www.youtube.com/embed/mKFL8CMoCVk&lt;/span&gt;
 &lt;/div&gt;
 
-&lt;!-- 6. Multi-Server Video Episodes / Stream Hosts --&gt;
-&lt;div id="episodes-data" style="display:none;"&gt;
-  &lt;ul data-server-name="Server 1 (FHD)" data-server-logo="https://example.com/server1-icon.png"&gt;
-    &lt;li&gt;&lt;a href="https://server1.example/embed/ep1"&gt;Episode 1&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="https://server1.example/embed/ep2"&gt;Episode 2&lt;/a&gt;&lt;/li&gt;
+&lt;!-- Multi-Server Stream Hosts / Episodes --&gt;
+&lt;div id=&quot;episodes-data&quot; style=&quot;display:none;&quot;&gt;
+  &lt;ul data-server-name=&quot;Vidsrc.to&quot; data-server-logo=&quot;&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;https://vidsrc.to/embed/movie/1328803&quot;&gt;Play Movie&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
-  &lt;ul data-server-name="Server 2 (Backup)" data-server-logo="https://example.com/server2-icon.png"&gt;
-    &lt;li&gt;&lt;a href="https://server2.example/embed/ep1"&gt;Episode 1&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="https://server2.example/embed/ep2"&gt;Episode 2&lt;/a&gt;&lt;/li&gt;
+  &lt;ul data-server-name=&quot;Vidsrc.co&quot; data-server-logo=&quot;&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;https://player.vidsrc.co/embed/movie/1328803&quot;&gt;Play Movie&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;ul data-server-name=&quot;Vidsrc.vip&quot; data-server-logo=&quot;&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;https://vidsrc.vip/embed/tv/1328803/1/1&quot;&gt;Play Movie&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;ul data-server-name=&quot;Videasy.net&quot; data-server-logo=&quot;&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;https://player.videasy.net/movie/1328803&quot;&gt;Play Movie&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;ul data-server-name=&quot;Vidlink.pro&quot; data-server-logo=&quot;&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;https://vidlink.pro/movie/1328803&quot;&gt;Play Movie&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;ul data-server-name=&quot;Autoembed.pro&quot; data-server-logo=&quot;&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;https://autoembed.pro/embed/movie/1328803&quot;&gt;Play Movie&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;ul data-server-name=&quot;Vidapi.xyz&quot; data-server-logo=&quot;&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;https://vidapi.xyz/embed/movie/1328803&quot;&gt;Play Movie&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;ul data-server-name=&quot;Vidpop.xyz&quot; data-server-logo=&quot;&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;https://www.vidpop.xyz/embed/?id=1328803&quot;&gt;Play Movie&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;!-- 7. Direct Download Links --&gt;
-&lt;div id="download-data" style="display:none;"&gt;
+&lt;!-- Direct Download Links --&gt;
+&lt;div id=&quot;download-data&quot; style=&quot;display:none;&quot;&gt;
   &lt;ul&gt;
-    &lt;li&gt;&lt;a href="https://download.example/ep1-720p.mp4"&gt;Episode 1 (720p)&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="https://download.example/ep1-1080p.mp4"&gt;Episode 1 (1080p)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://dl.vidsrc.vip/movie/1328803&quot;&gt;Download 1080p&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;!-- 8. Cast &amp; Celebrity Data --&gt;
-&lt;div id="celebrity-data" style="display:none;"&gt;
+&lt;!-- Cast / Celebrity Data --&gt;
+&lt;div id=&quot;celebrity-data&quot; style=&quot;display:none;&quot;&gt;
   &lt;ul&gt;
-    &lt;li&gt;&lt;img src="https://example.com/actor1.jpg"/&gt;&lt;span&gt;Actor Name&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;https://media.themoviedb.org/t/p/w300_and_h450_bestv2/9NRr2a1riIn5CWn5McZLJlk4vxR.jpg&quot;/&gt;&lt;span&gt;Scott Adkins&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;https://media.themoviedb.org/t/p/w300_and_h450_bestv2/lCQl28poQr4bLwqZjhryGkV73jO.jpg&quot;/&gt;&lt;span&gt;Peter Shinkoda&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;https://media.themoviedb.org/t/p/w300_and_h450_bestv2/i3k6kmAA3LLlPFEzkOs5hRIfwg6.jpg&quot;/&gt;&lt;span&gt;Michael Copon&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;https://media.themoviedb.org/t/p/w300_and_h450_bestv2/yHRgWTQuKr5tAMeR3qTtsOQU0Jb.jpg&quot;/&gt;&lt;span&gt;Donald Cerrone&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;https://media.themoviedb.org/t/p/w300_and_h450_bestv2/t7yY3Cyei6hH5CVI7y2TtG1oJVX.jpg&quot;/&gt;&lt;span&gt;Michael Rene Walton&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;https://media.themoviedb.org/t/p/w300_and_h450_bestv2/2J26NSBfmtborzz32ZqRpCkmr15.jpg&quot;/&gt;&lt;span&gt;Gary Cairns&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;https://media.themoviedb.org/t/p/w300_and_h450_bestv2/5ePVKMbW8aaI6oBtFoClJOZGpMl.jpg&quot;/&gt;&lt;span&gt;Shane Kosugi&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;https://media.themoviedb.org/t/p/w300_and_h450_bestv2/koSSsi2LU6gJm3S6o0OgJaxJExx.jpg&quot;/&gt;&lt;span&gt;Masanori Mimoto&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;https://media.themoviedb.org/t/p/w300_and_h450_bestv2/ymGQhMZaNoCyXY4rNb2vDl4mKNT.jpg&quot;/&gt;&lt;span&gt;Gabbi Garcia&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gb7PMq9wZPM3WJJup5fWAkEOnFC.jpg&quot;/&gt;&lt;span&gt;Sol Eugenio&lt;/span&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
 
