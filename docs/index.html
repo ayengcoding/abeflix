@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABEFLIX Documentation ? Blogger Streaming Web App Theme</title>
+  <meta name="description" content="Official documentation for ABEFLIX Blogger Theme. Setup guides, {lazyPosts} shortcodes builder, player configuration, and user dashboard features.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --sidebar-bg: #11131a;
+      --card-bg: #161922;
+      --card-hover: #1c202d;
+      --border: #232736;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --primary: #9333ea;
+      --primary-hover: #7e22ce;
+      --accent: #e50914;
+      --code-bg: #0d0f14;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: #a855f7; }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(17, 19, 26, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .brand-badge {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      background: linear-gradient(135deg, var(--accent), #b80710);
+      color: #fff;
+      border-radius: 9999px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .nav-links a:hover {
+      color: #fff;
+    }
+    .btn-demo {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+    .btn-demo:hover { background: #b80710; transform: translateY(-1px); }
+
+    /* Layout */
+    .docs-container {
+      display: flex;
+      flex: 1;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    aside {
+      width: 280px;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border);
+      padding: 2rem 1.25rem;
+      position: sticky;
+      top: 65px;
+      height: calc(100vh - 65px);
+      overflow-y: auto;
+      flex-shrink: 0;
+    }
+    .nav-group { margin-bottom: 2rem; }
+    .nav-group-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      padding-left: 0.5rem;
+    }
+    .doc-nav-item {
+      display: block;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      transition: all 0.15s;
+    }
+    .doc-nav-item:hover, .doc-nav-item.active {
+      color: #fff;
+      background: rgba(147, 51, 234, 0.15);
+      border-left: 3px solid var(--primary);
+    }
+    main {
+      flex: 1;
+      padding: 3rem;
+      min-width: 0;
+    }
+
+    /* Content styling */
+    .hero-banner {
+      width: 100%;
+      border-radius: var(--radius);
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    h1 { font-size: 2.25rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+    h2 { font-size: 1.5rem; font-weight: 700; margin-top: 3rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    h3 { font-size: 1.2rem; font-weight: 600; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+    p { margin-bottom: 1.25rem; color: #d1d5db; line-height: 1.7; }
+    ul, ol { margin-bottom: 1.5rem; padding-left: 1.5rem; color: #d1d5db; }
+    li { margin-bottom: 0.4rem; }
+
+    /* Callout */
+    .callout {
+      background: rgba(147, 51, 234, 0.1);
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 1.5rem 0;
+    }
+    .callout-title { font-weight: 700; color: #fff; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem; }
+    .callout-danger { background: rgba(229, 9, 20, 0.1); border-left-color: var(--accent); }
+
+    /* Code & Pre */
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.2rem;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      margin: 1.25rem 0;
+      position: relative;
+    }
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(255,255,255,0.08);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.85em;
+      color: #f472b6;
+    }
+    pre code { background: transparent; padding: 0; color: #f3f4f6; }
+
+    /* Shortcode Interactive Builder Card */
+    .builder-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin: 2rem 0;
+    }
+    .builder-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .form-control {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 0.65rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .form-control:focus { border-color: var(--primary); }
+    .builder-output {
+      background: #000;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .builder-output code {
+      color: #10b981;
+      font-size: 0.95rem;
+      word-break: break-all;
+    }
+    .btn-copy {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+    .btn-copy:hover { background: var(--primary-hover); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      aside { display: none; }
+      main { padding: 1.5rem; }
+      header { padding: 0.85rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span>?? ABEFLIX</span>
+      <span class="brand-badge">Blogger Theme</span>
+    </div>
+    <div class="nav-links">
+      <a href="#quickstart">Quickstart</a>
+      <a href="#shortcodes">Shortcodes</a>
+      <a href="#player">Video Player</a>
+      <a href="#pages">Pages</a>
+      <a href="https://abefilmpostcode.blogspot.com/" target="_blank" class="btn-demo">Live Demo ?</a>
+    </div>
+  </header>
+
+  <div class="docs-container">
+    <aside>
+      <div class="nav-group">
+        <div class="nav-group-title">Getting Started</div>
+        <a href="#overview" class="doc-nav-item active">Overview</a>
+        <a href="#installation" class="doc-nav-item">Installation</a>
+        <a href="#licensing" class="doc-nav-item">License & Domain Lock</a>
+        <a href="#pages" class="doc-nav-item">Required Pages</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-title">Configuration</div>
+        <a href="#shortcodes" class="doc-nav-item">Shortcode Engine</a>
+        <a href="#builder" class="doc-nav-item">Shortcode Generator</a>
+        <a href="#player" class="doc-nav-item">Multi-Source Player</a>
+        <a href="#dashboard" class="doc-nav-item">User Dashboard & Avatars</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-title">Support</div>
+        <a href="https://abefilmofficialzone.blogspot.com/p/registration-process.html" target="_blank" class="doc-nav-item">Register Domain ?</a>
+        <a href="https://abefilmofficialzone.blogspot.com/2025/12/abeflix.html" target="_blank" class="doc-nav-item">Official Store ?</a>
+      </div>
+    </aside>
+
+    <main>
+      <img src="assets/abeflix-banner.jpg" alt="ABEFLIX Streaming Platform" class="hero-banner">
+
+      <h1 id="overview">ABEFLIX Documentation Portal</h1>
+      <p>Welcome to the official technical documentation for <strong>ABEFLIX</strong>, the ultimate Netflix-inspired streaming theme built specifically for Google Blogger / Blogspot.</p>
+
+      <div class="callout">
+        <div class="callout-title">?? What makes ABEFLIX unique?</div>
+        <div>Unlike typical templates requiring deep code edits, ABEFLIX uses a modular <code>{lazyPosts}</code> widget shortcode engine, automated "Continue Watching" playback persistence, and full user accounts (Watchlist, Favorites, History, Avatars).</div>
+      </div>
+
+      <h2 id="installation">1. Installation Guide</h2>
+      <ol>
+        <li>Go to your <strong>Blogger Dashboard</strong> > <strong>Theme</strong> tab.</li>
+        <li>Click the arrow next to <strong>Customize</strong> and select <strong>Edit HTML</strong>.</li>
+        <li>Backup your existing code, select all, and paste the contents of your licensed <code>ABEFLIX Original.xml</code>.</li>
+        <li>Click <strong>Save</strong>.</li>
+      </ol>
+
+      <h2 id="licensing">2. License & Domain Activation</h2>
+      <div class="callout callout-danger">
+        <div class="callout-title">?? Mandatory License Verification</div>
+        <div>Before streaming works publicly, register your Blogger domain with the license key provided via Telegram:</div>
+        <p style="margin-top:0.5rem;"><a href="https://abefilmofficialzone.blogspot.com/p/registration-process.html" target="_blank"><strong>?? Go to Domain Registration Portal</strong></a></p>
+      </div>
+
+      <h2 id="pages">3. Required Core Pages</h2>
+      <p>Create these standalone Blogger pages (via Pages > New Page) or import <code>feed.atom</code>:</p>
+      <ul>
+        <li><code>Favorite</code> &mdash; URL: <code>/p/favorite.html</code></li>
+        <li><code>History</code> &mdash; URL: <code>/p/history.html</code></li>
+        <li><code>Watchlist</code> &mdash; URL: <code>/p/watchlist.html</code></li>
+        <li><code>My Account</code> &mdash; URL: <code>/p/my-account.html</code></li>
+        <li><code>Leaderboard</code> &mdash; URL: <code>/p/leaderboard.html</code></li>
+        <li><code>Discover</code> &mdash; URL: <code>/p/discover.html</code></li>
+      </ul>
+
+      <h2 id="shortcodes">4. Shortcode Engine (`{lazyPosts}`)</h2>
+      <p>Add an <strong>HTML/JavaScript Gadget</strong> anywhere in your layout (e.g. Main Homepage Rail) and paste a shortcode:</p>
+      <pre><code>{lazyPosts} $label={Action} $results={12} $style={nowrap} $class={carousel-posts}</code></pre>
+
+      <h3 id="builder">? Interactive Shortcode Generator</h3>
+      <div class="builder-card">
+        <div class="builder-grid">
+          <div class="form-group">
+            <label>Label / Category</label>
+            <input type="text" id="scLabel" class="form-control" value="Action" oninput="updateShortcode()">
+          </div>
+          <div class="form-group">
+            <label>Layout Style</label>
+            <select id="scStyle" class="form-control" onchange="updateShortcode()">
+              <option value="nowrap">Horizontal Carousel (nowrap)</option>
+              <option value="grid">Responsive Movie Grid (grid)</option>
+              <option value="top-list">Top 10 Ranked List (top-list)</option>
+              <option value="filtered-switch">Category Switcher (filtered-switch)</option>
+              <option value="wide-list">Wide Episode Cards (wide-list)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Number of Items</label>
+            <input type="number" id="scResults" class="form-control" value="12" min="1" max="30" oninput="updateShortcode()">
+          </div>
+          <div class="form-group">
+            <label>Sort By</label>
+            <select id="scSort" class="form-control" onchange="updateShortcode()">
+              <option value="latest">Latest / Published</option>
+              <option value="rating">Rating / Popular</option>
+            </select>
+          </div>
+        </div>
+
+        <label style="font-size:0.8rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:0.4rem;">Generated Shortcode:</label>
+        <div class="builder-output">
+          <code id="scOutput">{lazyPosts} $label={Action} $results={12} $style={nowrap} $class={carousel-posts}</code>
+          <button class="btn-copy" onclick="copyShortcode()">Copy Shortcode</button>
+        </div>
+      </div>
+
+      <h2 id="player">5. Video Multi-Server Player</h2>
+      <p>In your post HTML editor, format video streaming servers easily:</p>
+      <pre><code>&lt;div id="player-servers"&gt;
+  &lt;button data-stream="https://server1.example/embed/xyz"&gt;Server 1 (FHD)&lt;/button&gt;
+  &lt;button data-stream="https://server2.example/embed/xyz"&gt;Server 2 (Backup)&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+      <h2 id="dashboard">6. User Dashboard & Engagement Features</h2>
+      <ul>
+        <li><strong>Watchlist & History:</strong> Automatically synced in the viewer's local browser storage.</li>
+        <li><strong>Continue Watching:</strong> Progress timestamps saved whenever a video is paused or exited.</li>
+        <li><strong>Avatar Packs:</strong> Built-in picker under "My Account" with anime & cinema themed avatars.</li>
+      </ul>
+
+      <footer style="margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; text-align: center;">
+        &copy; 2026 ABEFLIX. Developed by <a href="https://github.com/ayengcoding" target="_blank">Ayeng Coding</a>. All rights reserved.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    function updateShortcode() {
+      const label = document.getElementById('scLabel').value.trim() || 'Movie';
+      const style = document.getElementById('scStyle').value;
+      const results = document.getElementById('scResults').value || 12;
+      const sort = document.getElementById('scSort').value;
+
+      let code = `{lazyPosts} $label={${label}} $results={${results}} $style={${style}}`;
+      if (style === 'nowrap') {
+        code += ' $class={carousel-posts}';
+      }
+      if (sort === 'rating') {
+        code += ' $sortBy={rating}';
+      }
+      document.getElementById('scOutput').innerText = code;
+    }
+
+    function copyShortcode() {
+      const text = document.getElementById('scOutput').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('.btn-copy');
+        const orig = btn.innerText;
+        btn.innerText = 'Copied!';
+        setTimeout(() => btn.innerText = orig, 1800);
+      });
+    }
+  </script>
+</body>
+</html>
