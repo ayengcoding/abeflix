@@ -198,6 +198,13 @@
       background: rgba(147, 51, 234, 0.2);
       border-color: var(--primary);
     }
+    .header-tab-item.active {
+      color: #fff !important;
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.35) 0%, rgba(126, 34, 206, 0.45) 100%) !important;
+      border-color: #a855f7 !important;
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.35);
+      font-weight: 700;
+    }
 
     /* Layout */
     .docs-container {
@@ -409,7 +416,7 @@
         border-bottom: none !important;
       }
       .brand-badge { display: none; }
-      .brand-logo-img { height: 28px; }
+      .brand-logo-img { height: 36px; max-height: 38px; }
       /* Hide Live Demo button on mobile header to let social icons breathe without overflowing */
       .header-top .btn-demo { display: none !important; }
       .social-links { gap: 0.4rem; }
@@ -431,6 +438,7 @@
         border-bottom: none !important;
         background: #11141c;
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+        scroll-behavior: smooth;
       }
       .builder-card { padding: 1.2rem 0.95rem; margin: 1.5rem 0; }
       .builder-grid { grid-template-columns: 1fr; gap: 0.9rem; }
@@ -891,6 +899,73 @@
         }
       });
     }
+
+    // Scrollspy with automatic centering for mobile header tabs
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabsNav = document.querySelector('.header-tabs');
+      const tabLinks = document.querySelectorAll('.header-tab-item');
+      const sidebarLinks = document.querySelectorAll('.doc-nav-item');
+      
+      // Target sections that correspond to tabs
+      const sectionIds = ['setup', 'layout', 'shortcodes', 'builder', 'posting', 'user-system', 'notifications'];
+      const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+      function updateActiveTab() {
+        const scrollPos = window.scrollY + 120; // offset for sticky tab bar
+        let currentSectionId = '';
+
+        for (let i = 0; i < sections.length; i++) {
+          const sec = sections[i];
+          const top = sec.offsetTop;
+          const height = sec.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            currentSectionId = sec.id;
+            break;
+          }
+        }
+
+        // Default to setup if at top
+        if (!currentSectionId && window.scrollY < (sections[0]?.offsetTop || 400)) {
+          currentSectionId = 'setup';
+        }
+
+        if (currentSectionId) {
+          tabLinks.forEach(tab => {
+            const href = tab.getAttribute('href');
+            if (href === '#' + currentSectionId) {
+              if (!tab.classList.contains('active')) {
+                tab.classList.add('active');
+                // Auto-center active tab in horizontal scroll
+                if (tabsNav) {
+                  const tabLeft = tab.offsetLeft;
+                  const tabWidth = tab.offsetWidth;
+                  const navWidth = tabsNav.offsetWidth;
+                  tabsNav.scrollTo({
+                    left: tabLeft - (navWidth / 2) + (tabWidth / 2),
+                    behavior: 'smooth'
+                  });
+                }
+              }
+            } else if (href && href.startsWith('#')) {
+              tab.classList.remove('active');
+            }
+          });
+
+          // Also keep desktop sidebar active link in sync
+          sidebarLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === '#' + currentSectionId || (currentSectionId === 'setup' && href === '#overview')) {
+              link.classList.add('active');
+            } else if (href && href.startsWith('#')) {
+              link.classList.remove('active');
+            }
+          });
+        }
+      }
+
+      window.addEventListener('scroll', updateActiveTab, { passive: true });
+      updateActiveTab();
+    });
   </script>
 </body>
 </html>
