@@ -419,15 +419,18 @@
       /* Second Line: Sticky on top when scrolling, no border bottom */
       .header-tabs {
         display: flex;
+        position: -webkit-sticky;
         position: sticky;
-        top: 0;
-        z-index: 60;
-        padding: 0.5rem 0.85rem;
+        top: 0px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 999;
+        padding: 0.55rem 0.85rem;
         border-top: none !important;
         border-bottom: none !important;
-        background: rgba(17, 20, 28, 0.95);
-        backdrop-filter: blur(12px);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+        background: #11141c;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
       }
       .builder-card { padding: 1.2rem 0.95rem; margin: 1.5rem 0; }
       .builder-grid { grid-template-columns: 1fr; gap: 0.9rem; }
@@ -477,18 +480,19 @@
       </div>
     </div>
 
-    <!-- 2nd line: Mobile Horizontal Scrollable Tabs -->
-    <nav class="header-tabs" aria-label="Mobile Navigation">
-      <a href="#setup" class="header-tab-item">Getting Started</a>
-      <a href="#layout" class="header-tab-item">Layout &amp; Widgets</a>
-      <a href="#shortcodes" class="header-tab-item">Shortcodes</a>
-      <a href="#builder" class="header-tab-item">Shortcode Generator</a>
-      <a href="#posting" class="header-tab-item">Post Template</a>
-      <a href="#user-system" class="header-tab-item">Avatars &amp; Accounts</a>
-      <a href="#notifications" class="header-tab-item">Notifications</a>
-      <a href="https://ayengstore.gumroad.com/l/abeflix" target="_blank" class="header-tab-item">Theme Store</a>
-    </nav>
   </header>
+
+  <!-- Mobile Sticky Navigation Tabs (Direct body child for true sticky behavior) -->
+  <nav class="header-tabs" aria-label="Mobile Navigation">
+    <a href="#setup" class="header-tab-item">Getting Started</a>
+    <a href="#layout" class="header-tab-item">Layout &amp; Widgets</a>
+    <a href="#shortcodes" class="header-tab-item">Shortcodes</a>
+    <a href="#builder" class="header-tab-item">Shortcode Generator</a>
+    <a href="#posting" class="header-tab-item">Post Template</a>
+    <a href="#user-system" class="header-tab-item">Avatars &amp; Accounts</a>
+    <a href="#notifications" class="header-tab-item">Notifications</a>
+    <a href="https://ayengstore.gumroad.com/l/abeflix" target="_blank" class="header-tab-item">Theme Store</a>
+  </nav>
 
   <div class="docs-container">
     <aside>
